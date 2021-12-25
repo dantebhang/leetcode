@@ -14,17 +14,31 @@
 //   }
 // }
 
-//Hashmap O(n) time complexity
+//Map O(n) time and space complexity 80ms runtime
+// const twoSum = function(nums, target){
+//   const map = new Map();
+//   for(let i = 0; i < nums.length; i++){
+//     let neededVal = target - nums[i];
+//     if(map.has(neededVal)){
+//       return [map.get(neededVal), i]
+//     } else {
+//       map.set(nums[i], i)
+//     }
+//   }
+// }
 
+
+//Hashmap O(n) time and space complexity
+//most optimal solution according to leetcode 72ms runtime
 const twoSum = function (nums, target) {
-	const hashMap = {}; //start with empty object to store values
+	const hashMap = {}; //start with empty object to store value : index
 	for (let i = 0; i < nums.length; i++) {
 		let neededVal = target - nums[i];
 		if (hashMap[neededVal] != null) { //if index in hashMap exists
 			return [hashMap[neededVal], i]; 
 		} else {
-			hashMap[nums[i]] = i;
+			hashMap[nums[i]] = i; //otherwise store index in hashmap
 		}
 	}
 };
-twoSum([3, 2, 4], 6); //[1,2]
+
